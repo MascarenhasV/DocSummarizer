@@ -1,0 +1,12 @@
+//test server in node.js
+var http = require("http");
+
+http.createServer(function(request, response){
+	//Send the HTTP header
+	//HTTP Status 200 : OK
+	//Content Type : Text/Plain
+	response.writeHead(200, {'Content-Type' : 'text/plain'});	
+	//Send response body as "Hello World"
+	response.end('Hello World\n');	
+}).listen(8081);
+console.log("Server is running at http://127.0.0.1:8081/");
