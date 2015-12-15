@@ -60,8 +60,8 @@ rl.on('line', function (line) {
 });
 rl.on('close', function (line) {
 	
-	var NGrams = natural.NGrams
 	var trigram = NGrams.trigrams(words);
+	var NGrams = natural.NGrams
 	var tSize = trigram.length;
 	var index = 0;
 	while(index < tSize){
@@ -74,6 +74,7 @@ rl.on('close', function (line) {
 	}
 	
 	buildHTMLContent();
+	writeToFile(htmlContent);
 	
 	console.log('done reading file.');
 });
@@ -93,7 +94,6 @@ function buildHTMLContent(){
 	buildEditDistanceTableForTrigrams();
 	htmlContent = "<html>"+STYLE+"<body>" + body+ "</body></html>";
 	
-	writeToFile(htmlContent);
 }
 
 /*
